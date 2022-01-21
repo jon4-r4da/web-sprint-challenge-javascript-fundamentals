@@ -17,6 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
+//Nested function is able to access the Internal function through lexical scoping, which allows the nested function to have access to the outer function's variables, but does not allow the outer function to access the nested function's variables. 
 
 
 
@@ -28,11 +29,14 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(number) {
+  this.number = number
+  let counter = 0;
+  function plus() {counter += 1;}
+  plus();
+  return counter;
   }
- 
+ console.log(summation(4));
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -56,9 +60,10 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function animalNames(){
+    const displayNames = zooAnimals.forEach(function(item){
+      return item.name && item.scientific_name;
+  });
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
